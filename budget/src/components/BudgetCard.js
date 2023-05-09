@@ -1,11 +1,13 @@
 import React from "react";
-import { Card, ProgressBar, Stack } from "react-bootstrap";
+import { Card, ProgressBar, Stack, Button } from "react-bootstrap";
 import { currencyFormatter } from "../utils";
 
 const BudgetCard = ({ name, amount, max, gray }) => {
   const classNames = [];
   if (amount > max) {
     classNames.push("bg-danger", "gb - opacity - 10");
+  } else if (gray) {
+    classNames.push("bg-light");
   }
 
   return (
