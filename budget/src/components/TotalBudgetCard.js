@@ -2,7 +2,7 @@ import React from "react";
 import BudgetCard from "./BudgetCard";
 import { UNCATEGORIZED_BUDGET_ID } from "../context/BudgetContext";
 
-const UncategorizedBudgetCard = (props) => {
+const TotalBudgetCard = (props) => {
   const { getBudgetExpenses } = useBudgets;
   const amount = getBudgetExpenses(UNCATEGORIZED_BUDGET_ID).reduce(
     (total, expense) => total + expense.amount,
@@ -14,4 +14,4 @@ const UncategorizedBudgetCard = (props) => {
   return <BudgetCard gray name="Uncategorized" amount={amount} {...props} />;
 };
 
-export default UncategorizedBudgetCard;
+export default TotalBudgetCard;
