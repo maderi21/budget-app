@@ -2,16 +2,14 @@ import React from "react";
 import BudgetCard from "./BudgetCard";
 import { UNCATEGORIZED_BUDGET_ID } from "../context/BudgetContext";
 
-const TotalBudgetCard = (props) => {
-  const { getBudgetExpenses } = useBudgets;
-  const amount = getBudgetExpenses(UNCATEGORIZED_BUDGET_ID).reduce(
-    (total, expense) => total + expense.amount,
-    0
-  );
+const TotalBudgetCard = () => {
+  const { expenses, budgets } = useBudgets;
+  const amount = expenses.reduce((total, expense) => total + expense.amount, 0);
+  const max = budgets.reduce((total, budget) => total + budget.max, 0);
 
-  if (amount === 0) return null;
+  if (max === 0) return null;
 
-  return <BudgetCard gray name="Uncategorized" amount={amount} {...props} />;
+  return <BudgetCard gray name="Total" amount={amount} max={max} hideButtons />;
 };
 
 export default TotalBudgetCard;
