@@ -2,7 +2,7 @@ import React from "react";
 import { Card, ProgressBar, Stack, Button } from "react-bootstrap";
 import { currencyFormatter } from "../utils";
 
-const BudgetCard = ({ name, amount, max, gray }) => {
+const BudgetCard = ({ name, amount, max, gray, openAddExpenseClick }) => {
   const classNames = [];
   if (amount > max) {
     classNames.push("bg-danger", "gb - opacity - 10");
@@ -30,7 +30,11 @@ const BudgetCard = ({ name, amount, max, gray }) => {
           now={amount}
         />
         <Stack direction="horizontal" gap="2" className="mt-4">
-          <Button varient="outline-primary" className="ms-auto">
+          <Button
+            varient="outline-primary"
+            className="ms-auto"
+            onClick={openAddExpenseClicks}
+          >
             Add Expense
           </Button>
           <Button variant="outline-secondary">View Expenses</Button>
