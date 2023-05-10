@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import {v4 as uuidV4} from 'uuid'
 
 const BudgetsContext = React.createContext;
 
@@ -6,15 +7,53 @@ export function useBadgets() {
   return useContext(BudgetsContext);
 }
 
-export const BudgetsProvider = ({ children }) => {
-  const (budgets,setBudgets) = useState([]);
-  const (expenses,setExpense) = ([]);
+{
+	id: 
+	name:
+	max:
+}
 
-  function getBudgetExpenses(budgetId) {}
-  function addExpense() {}
-  function addBudget() {}
-  function deleteBudget() {}
-  function deleteExpense() {}
+
+{
+	id:
+	budgetId:
+	amount
+	description:
+}
+
+
+
+
+
+export const BudgetsProvider = ({ children }) => {
+  const [budgets, setBudgets] = useState([]);
+  const [expenses, setExpenses] = [];
+
+  function getBudgetExpenses(budgetId) {
+		return expenses.filter(expense => expense.budgetId === budgetId)
+	}
+  function addExpense({description, amount, budgetId}) {
+		setExpenses(prevExpenses => {
+			return [...prevExpenses, {id:uuidV4(),name, max, amount, description, budgetId }]
+		})
+	}
+  function addBudget({name, max}) {
+		setBudgets(prevBudgets => {
+			if(prevBudgets.find(budget => budget.name === name)) {
+				return prevBudgets
+			}
+			return [...prevBudgets, {id:uuidV4(),name, max }]
+		})
+	}
+  function deleteBudget({id}) {
+		setBudgets(prevBudgets =>{
+			return prevBudgets.filter(budget => budget.id !== id)
+		})
+	}
+  function deleteExpense({id}) {
+		setExpenses(prevExpenses =>{
+		return prevExpenses.filter(expenses => expenses.id !== id)
+	})}
 
   return (
     <BudgetsContext.Provider
@@ -32,4 +71,3 @@ export const BudgetsProvider = ({ children }) => {
     </BudgetsContext.Provider>
   );
 };
-s;
