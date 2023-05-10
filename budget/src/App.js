@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import BudgetCard from "./components/BudgetCard";
 import AddBudgetModal from "./components/AddBudgetModal";
 import { useState } from "react";
-import { useBadgets } from "./context/BudgetContext";
+import { useBudgets } from "./context/BudgetContext";
 
 function App() {
   const [showAddBudgetModal, setShowAddBudgetModal] = useState(false);

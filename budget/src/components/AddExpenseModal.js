@@ -3,9 +3,11 @@ import { Form, Modal, ModalHeader, ModalTitle, Button } from "react-bootstrap";
 import { useRef } from "react";
 import { useBudgets } from "../context/BudgetContext";
 
-const AddBudgetModal = ({ show, handleClose }) => {
-  const nameRef = useRef();
-  const maxRef = useRef();
+const AddExpenseModal = ({ show, handleClose, defaultBudgetId }) => {
+  const descriptionRef = useRef();
+  const amountRef = useRef();
+  const budgetIdRef = useRef();
+
   const { addBudget } = useBudgets();
 
   function handleSubmit(e) {
@@ -50,4 +52,4 @@ const AddBudgetModal = ({ show, handleClose }) => {
   );
 };
 
-export default AddBudgetModal;
+export default AddExpenseModal;
